@@ -5,6 +5,10 @@
 * .hidden {
   display: none;
 }
+* html {
+  height: 100%;
+  overflow: auto;
+}
 * input::placeholder {
   color: hsl(231deg, 11%, 63%) !important;
   font-weight: 400;
@@ -97,7 +101,62 @@
   top: 80px;
   box-shadow: rgba(255, 255, 255, 0.05) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.1) 0px 50px 100px -20px, rgba(0, 0, 0, 0.15) 0px 30px 60px -30px;
 }
+* body .container .step .card .form-check-inline {
+  margin-right: 0;
+}
+* body .container .step .card .form-check {
+  display: flex;
+  flex-direction: column;
+}
+* body .container .step .card .form-check .radio-btn {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(213deg, 96%, 18%);
+  border: solid 1px hsl(229deg, 24%, 87%);
+  border-radius: 10px;
+}
+* body .container .step .card .form-check .radio-btn input {
+  appearance: none;
+}
+* body .container .step .card .form-check .radio-btn .radio-icon {
+  margin-right: 10px;
+}
+* body .container .step .card .form-check .radio-btn .radio-label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+* body .container .step .card .form-check .radio-btn .radio-label .t2 {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+* body .container .step .card .custom-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  padding: 0;
+  height: 60px;
+  width: 100%;
+  background-color: hsl(217deg, 100%, 97%);
+  margin-top: 20px;
+  border-radius: 10px;
+}
+* body .container .step .card .custom-switch input {
+  position: absolute;
+  left: 0;
+  width: min-content;
+}
 * body .container .footer {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   background-color: white;
   position: absolute;
@@ -112,6 +171,16 @@
   position: relative;
   width: 110px;
   float: right;
+  margin: 0;
+  padding: 10px;
+  color: hsl(206deg, 94%, 87%);
+}
+* body .container .footer .btn-secondary {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(231deg, 11%, 63%);
+  font-weight: 500;
+  padding: 0;
+  margin-left: -15px;
 }
 
 /*# sourceMappingURL=output.scss.map */

@@ -1,5 +1,7 @@
+const mobileWidth = 768;
+
 function start() {
-  let step = 0;
+  let step = 1;
   showStep(step);
   showSidebar();
   sidebarSelectStep(step);
@@ -26,7 +28,7 @@ function showSidebar() {
 }
 
 function isMobile() {
-  return window.innerWidth < 768;
+  return window.innerWidth < mobileWidth;
 }
 
 function hideSidebar() {
@@ -44,8 +46,15 @@ function showStep(n) {
 
   // show the step we want
   steps[n].classList.remove("hidden");
+
+  sidebarSelectStep(n);
 }
 
 start();
 
 window.addEventListener("resize", showSidebar);
+
+// get status of switch
+function getSwitchStatus() {
+  return document.querySelector("#billing").checked;
+}

@@ -11,7 +11,7 @@
       sizes="32x32"
       href="src/assets/images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="src/assets/sass/output.scss" />
+    <link rel="stylesheet" href="src/sass/output.scss" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -97,10 +97,78 @@
         <!-- Step 1 end -->
       </div>
       <div class="step step2" id="step2">
-        <!-- Step 2 start -->
-        Select your plan You have the option of monthly or yearly billing.
-        Arcade $9/mo Advanced $12/mo Pro $15/mo Monthly Yearly Go Back Next Step
-        <!-- Step 2 end -->
+        <div class="card">
+          <!-- Step 2 start -->
+          <div class="t1">Select your plan</div>
+          <div class="t2">You have the option of monthly or yearly billing.</div>
+
+          <div class="form-check form-check-inline">
+            <div class="radio-btn">
+              <img
+                src="src/assets/images/icon-arcade.svg"
+                alt="icon-arcade"
+                class="radio-icon icon-arcade"/>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <div class="radio-label">
+                <label class="form-check-label" for="inlineRadio1">Arcade</label>
+                <div class="t2">$9/mo</div>
+              </div>
+            </div>
+            <div class="radio-btn">
+              <img
+                src="src/assets/images/icon-advanced.svg"
+                alt="icon-advanced"
+                class="radio-icon icon-advanced"/>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <div class="radio-label">
+                <label class="form-check-label" for="inlineRadio1">Advanced</label>
+                <div class="t2">$12/mo</div>
+              </div>
+            </div>
+            <div class="radio-btn">
+              <img
+                src="src/assets/images/icon-pro.svg"
+                alt="icon-pro"
+                class="radio-icon icon-pro"/>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <div class="radio-label">
+                <label class="form-check-label" for="inlineRadio1">Pro</label>
+                <div class="t2">$15/mo</div>
+              </div>
+            </div>
+          </div>
+          <div class="custom-control custom-switch">
+            <label>Monthly</label>
+            <input type="checkbox" class="custom-control-input" id="billing">
+            <label class="custom-control-label" for="billing">Yearly</label>
+          </div>
+
+          <!-- Step 2 end -->
+        </div>
+        <div class="footer">
+          <button type="button" class="btn btn-secondary btn-lg btn-block">
+          Go Back 
+          <button type="button" class="btn btn-primary btn-lg btn-block">
+          Next Step
+        </div>
       </div>
       <div class="step step3" id="step3">
         <!-- Step 3 start -->
