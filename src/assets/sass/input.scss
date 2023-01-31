@@ -1,0 +1,35 @@
+// Code to import local fonts in src/assets/fonts
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//Primary colors
+$color_marineblue: hsl(213, 96%, 18%);
+$color_purplishblue: hsl(243, 100%, 62%);
+$color_pastelblue: hsl(228, 100%, 84%);
+$color_lightblue: hsl(206, 94%, 87%);
+$color_strawberryred: hsl(354, 84%, 57%);
+
+// Neutral colors
+$color_coolgray: hsl(231, 11%, 63%);
+$color_lightgray: hsl(229, 24%, 87%);
+$color_magnolia: hsl(217, 100%, 97%);
+$color_alabaster: hsl(231, 100%, 99%);
+$color_white: hsl(0, 0%, 100%);
+
+// Typography
+$font-stack: 'Ubuntu', sans-serif;
+$font-size: 16px;
+
+$primary-color: #333;
+
+* {
+    font-family: $font-stack;
+}
+
+.hidden {
+    display: none;
+}
