@@ -1,7 +1,32 @@
 function start() {
-  let step = 1;
+  let step = 0;
   showStep(step);
-  hideSidebar();
+  showSidebar();
+  sidebarSelectStep(step);
+}
+
+function sidebarSelectStep(n) {
+  // remove "active" from all the divs with i inside
+  document.querySelectorAll(".i").forEach((div) => {
+    div.classList.remove("active");
+  });
+
+  // add "active" to the nth div with i inside
+  document.querySelectorAll(".i")[n].classList.add("active");
+}
+
+function showSidebar() {
+  document.querySelector(".sidebar-desktop").classList.add("hidden");
+  document.querySelector(".sidebar-mobile").classList.add("hidden");
+  if (isMobile()) {
+    document.querySelector(".sidebar-mobile").classList.remove("hidden");
+  } else {
+    document.querySelector(".sidebar-desktop").classList.remove("hidden");
+  }
+}
+
+function isMobile() {
+  return window.innerWidth < 768;
 }
 
 function hideSidebar() {
@@ -21,7 +46,6 @@ function showStep(n) {
   steps[n].classList.remove("hidden");
 }
 
-// show steps array in console
-console.log(document.querySelectorAll(".step"));
-
 start();
+
+window.addEventListener("resize", showSidebar);
