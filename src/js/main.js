@@ -1,10 +1,15 @@
 const mobileWidth = 768;
+let step = 1;
+const btnBack = document.querySelector("#btn-back");
+btnBack.addEventListener("click", previousStep);
 
 function start() {
-  let step = 1;
   showStep(step);
   showSidebar();
   sidebarSelectStep(step);
+  window.addEventListener("resize", showSidebar);
+
+  // add event listener to the button
 }
 
 function sidebarSelectStep(n) {
@@ -50,11 +55,16 @@ function showStep(n) {
   sidebarSelectStep(n);
 }
 
-start();
-
-window.addEventListener("resize", showSidebar);
+function previousStep() {
+  if (step > 0) {
+    step--;
+    showStep(step);
+  }
+}
 
 // get status of switch
 function getSwitchStatus() {
   return document.querySelector("#billing").checked;
 }
+
+start();
