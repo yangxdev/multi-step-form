@@ -114,8 +114,21 @@
   display: flex;
   flex-direction: column;
 }
-* body .container .step .card .form-check .radio-btn {
+* body .container .step .card .form-check .wrapper {
   margin-top: 15px;
+  border-radius: 10px;
+  width: 100%;
+}
+* body .container .step .card .form-check .wrapper :hover {
+  cursor: pointer;
+}
+* body .container .step .card .form-check .selected {
+  -webkit-box-shadow: inset 0px 0px 0px 2px hsl(243deg, 100%, 62%);
+  -moz-box-shadow: inset 0px 0px 0px 2px hsl(243deg, 100%, 62%);
+  box-shadow: inset 0px 0px 0px 2px hsl(243deg, 100%, 62%);
+  background-color: hsl(217deg, 100%, 97%);
+}
+* body .container .step .card .form-check .radio-btn {
   display: flex;
   width: 100%;
   padding: 20px;

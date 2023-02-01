@@ -3,13 +3,14 @@ let step = 1;
 const btnBack = document.querySelector("#btn-back");
 btnBack.addEventListener("click", previousStep);
 const billingSlider = document.querySelector("#billing-slider");
-billingSlider.addEventListener("click", selectPlan);
+billingSlider.addEventListener("click", selectBilling);
 
 function start() {
   showStep(step);
   showSidebar();
   sidebarSelectStep(step);
   window.addEventListener("resize", showSidebar);
+  selectPlan("arcade");
 }
 
 function sidebarSelectStep(n) {
@@ -68,7 +69,7 @@ function getSwitchStatus(id) {
 }
 
 // add "selected" class to the selected plan
-function selectPlan(plan) {
+function selectBilling(plan) {
   document.querySelector("#billing-monthly").classList.remove("selected");
   document.querySelector("#billing-yearly").classList.remove("selected");
   if (getSwitchStatus("billing")) {
@@ -78,4 +79,32 @@ function selectPlan(plan) {
   }
 }
 
+//add event listener to the three buttons
+document.querySelector("#btn-arcade").addEventListener("click", () => {
+  selectPlan("arcade");
+});
+document.querySelector("#btn-advanced").addEventListener("click", () => {
+  selectPlan("advanced");
+});
+document.querySelector("#btn-pro").addEventListener("click", () => {
+  selectPlan("pro");
+});
+
+// radio button system of arcade, advanced and pro
+function selectPlan(plan) {
+  deselectPlans();
+  document.querySelector("#btn-" + plan).classList.add("selected");
+
+  // select radio button
+  document.querySelector("#input-" + plan).checked = true;
+
+  console.log("plan selected: " + plan);
+}
+
+function deselectPlans() {
+  document.querySelector("#btn-arcade").classList.remove("selected");
+  document.querySelector("#btn-advanced").classList.remove("selected");
+  document.querySelector("#btn-pro").classList.remove("selected");
+  // console.log("plans deselected");
+}
 start();

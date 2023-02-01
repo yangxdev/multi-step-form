@@ -201,8 +201,23 @@ $font-size: 16px;
           .form-check {
             display: flex;
             flex-direction: column;
-            .radio-btn {
+            .wrapper {
               margin-top: 15px;
+              border-radius: 10px;
+              width: 100%;
+              :hover {
+                cursor: pointer;
+              }
+            }
+            .selected {
+              // border: solid 1px $color_purplishblue;
+              -webkit-box-shadow: inset 0px 0px 0px 2px $color_purplishblue;
+              -moz-box-shadow: inset 0px 0px 0px 2px $color_purplishblue;
+              box-shadow: inset 0px 0px 0px 2px $color_purplishblue;
+              background-color: $color_magnolia;
+            }
+            .radio-btn {
+              // margin-top: 15px;
               display: flex;
               width: 100%;
               padding: 20px;
@@ -211,6 +226,9 @@ $font-size: 16px;
               color: $color_marineblue;
               border: solid 1px $color_lightgray;
               border-radius: 10px;
+              // :hover {
+              // cursor: pointer;
+              // }
               input {
                 appearance: none;
               }
