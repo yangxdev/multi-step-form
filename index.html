@@ -155,11 +155,16 @@
               </div>
             </div>
           </div>
-          <div class="custom-control custom-switch">
-            <label>Monthly</label>
+          <!-- <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" id="billing">
-            <label class="custom-control-label" for="billing">Yearly</label>
-          </div>
+            <label class="custom-control-label" for="billing"></label>
+          </div> -->
+          <label class="switch">
+            <div class="t3 selected" id="billing-monthly"><div>Monthly</div></div>
+            <input type="checkbox" id="billing">
+            <span class="slider round" id="billing-slider"></span>
+            <div class="t3" id="billing-yearly"><div>Yearly</div></div>
+          </label>
 
           <!-- Step 2 end -->
         </div>

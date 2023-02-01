@@ -2,14 +2,14 @@ const mobileWidth = 768;
 let step = 1;
 const btnBack = document.querySelector("#btn-back");
 btnBack.addEventListener("click", previousStep);
+const billingSlider = document.querySelector("#billing-slider");
+billingSlider.addEventListener("click", selectPlan);
 
 function start() {
   showStep(step);
   showSidebar();
   sidebarSelectStep(step);
   window.addEventListener("resize", showSidebar);
-
-  // add event listener to the button
 }
 
 function sidebarSelectStep(n) {
@@ -63,8 +63,19 @@ function previousStep() {
 }
 
 // get status of switch
-function getSwitchStatus() {
-  return document.querySelector("#billing").checked;
+function getSwitchStatus(id) {
+  return document.querySelector("#" + id).checked;
+}
+
+// add "selected" class to the selected plan
+function selectPlan(plan) {
+  document.querySelector("#billing-monthly").classList.remove("selected");
+  document.querySelector("#billing-yearly").classList.remove("selected");
+  if (getSwitchStatus("billing")) {
+    document.querySelector("#billing-monthly").classList.add("selected");
+  } else {
+    document.querySelector("#billing-yearly").classList.add("selected");
+  }
 }
 
 start();
