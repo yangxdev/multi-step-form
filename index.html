@@ -183,10 +183,61 @@
       </div>
       <div class="step step3" id="step3">
         <!-- Step 3 start -->
-        Pick add-ons Add-ons help enhance your gaming experience. Online service
-        Access to multiplayer games +$1/mo Larger storage Extra 1TB of cloud
-        save +$2/mo Customizable Profile Custom theme on your profile +$2/mo Go
-        Back Next Step
+        <div class="card">
+          <div class="t1">Pick add-ons</div> 
+          <div class="t2">Add-ons help enhance your gaming experience. </div>
+          Online service
+          <div class="form-check form-check-inline">
+            <div class="wrapper" id="btn-online-service">
+              <div class="radio-btn" >
+                <img
+                  src="src/assets/images/icon-arcade.svg"
+                  alt="icon-arcade"
+                  class="radio-icon icon-online-service"/>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="input-online-service"
+                  value="option1"
+                />
+                <div class="radio-label">
+                  <label class="form-check-label" for="inlineRadio1">Online service</label>
+                  <div class="t2">$1/mo</div>
+                </div>
+              </div>
+            </div>
+          <!-- Access to multiplayer games  -->
+          Larger storage 
+          <div class="form-check form-check-inline">
+            <div class="wrapper" id="btn-larger-storage">
+              <div class="radio-btn" >
+                <img
+                  src="src/assets/images/icon-arcade.svg"
+                  alt="icon-arcade"
+                  class="radio-icon icon-arcade"/>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="input-arcade"
+                  value="option1"
+                />
+                <div class="radio-label">
+                  <label class="form-check-label" for="inlineRadio1">Arcade</label>
+                  <div class="t2">$9/mo</div>
+                </div>
+              </div>
+            </div>
+          Extra 1TB of cloud
+          save +$2/mo Customizable Profile Custom theme on your profile +$2/mo
+        </div>
+        <div class="footer">
+          <button type="button" class="btn btn-secondary btn-lg btn-block" id="btn-back">
+          Go Back 
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-next">
+          Next Step
+        </div>
         <!-- Step 3 end -->
       </div>
       <div class="step step4" id="step4">
@@ -212,6 +263,6 @@
       >. Coded by <a href="#">yangxdev</a>.
     </div>
 
-    <script src="src/js/main.js"></script>
+    <script src="/Users/yang/Dev/react/multi-step-form/src/js/main.js"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@
   transition: 0.15s ease;
 }
 * .hidden {
-  display: none;
+  display: none !important;
 }
 * html {
   height: 100%;
@@ -90,6 +90,8 @@
   color: hsl(213deg, 96%, 18%);
 }
 * body .container .step {
+  display: flex;
+  justify-content: center;
   height: 100vh;
   width: 100%;
 }

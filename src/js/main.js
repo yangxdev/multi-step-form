@@ -1,5 +1,5 @@
 const mobileWidth = 768;
-let step = 1;
+let step = 2;
 const btnBack = document.querySelector("#btn-back");
 btnBack.addEventListener("click", previousStep);
 const billingSlider = document.querySelector("#billing-slider");
