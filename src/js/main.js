@@ -101,6 +101,33 @@ function selectPlan(plan) {
   console.log("plan selected: " + plan);
 }
 
+//add event listener to the buttons: btn-online-service, btn-larger-storage, btn-customizable-profile
+document.querySelector("#btn-online-service").addEventListener("click", () => {
+  selectAddons("online-service");
+});
+document.querySelector("#btn-larger-storage").addEventListener("click", () => {
+  selectAddons("larger-storage");
+});
+document.querySelector("#btn-customizable-profile").addEventListener("click", () => {
+  selectAddons("customizable-profile");
+});
+
+function selectAddons(addon) {
+  // document.querySelector("#btn-" + addon).classList.add("selected");
+  // console.log("addon selected: " + addon);
+  // add "selected" class to the selected addons, deselect if already selected
+  if (document.querySelector("#btn-" + addon).classList.contains("selected")) {
+    document.querySelector("#btn-" + addon).classList.remove("selected");
+    // uncheck the input box
+    document.querySelector("#input-" + addon).checked = false;
+  }
+  else {
+    document.querySelector("#btn-" + addon).classList.add("selected");
+    // check the input box
+    document.querySelector("#input-" + addon).checked = true;
+  }
+}
+
 function deselectPlans() {
   document.querySelector("#btn-arcade").classList.remove("selected");
   document.querySelector("#btn-advanced").classList.remove("selected");
