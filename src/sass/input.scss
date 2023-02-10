@@ -102,6 +102,7 @@ $font-size: 16px;
     height: 100%;
     overflow: auto;
   }
+
   //Typography
   font-family: $font-stack;
   input::placeholder {
@@ -144,6 +145,7 @@ $font-size: 16px;
     position: relative;
     margin: 0px;
     .container {
+      width: 100vw;
       margin: 0 auto;
       padding: 0;
       .sidebar {
