@@ -1,7 +1,20 @@
 const mobileWidth = 768;
-let step = 2;
-const btnBack = document.querySelector("#btn-back");
-btnBack.addEventListener("click", previousStep);
+let step = 1;
+let billing = "monthly";
+
+function refreshButtons() {
+  console.log("refreshed buttons");
+  const btnBack = document.querySelectorAll(".btn-back");
+  btnBack.forEach((btn) => {
+    btn.addEventListener("click", previousStep);
+  });
+  const btnNext = document.querySelectorAll(".btn-next");
+  btnNext.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      nextStep();
+    });
+  });
+}
 const billingSlider = document.querySelector("#billing-slider");
 billingSlider.addEventListener("click", selectBilling);
 
@@ -11,6 +24,7 @@ function start() {
   sidebarSelectStep(step);
   window.addEventListener("resize", showSidebar);
   selectPlan("arcade");
+  refreshButtons();
 }
 
 function sidebarSelectStep(n) {
@@ -60,6 +74,16 @@ function previousStep() {
   if (step > 0) {
     step--;
     showStep(step);
+    refreshButtons();
+    console.log("previousStep pressed");
+  }
+}
+function nextStep() {
+  if (step < 3) {
+    step++;
+    showStep(step);
+    refreshButtons();
+    console.log("nextStep pressed");
   }
 }
 
@@ -77,6 +101,7 @@ function selectBilling(plan) {
   } else {
     document.querySelector("#billing-yearly").classList.add("selected");
   }
+  billing = plan;
 }
 
 //add event listener to the three buttons
@@ -108,9 +133,11 @@ document.querySelector("#btn-online-service").addEventListener("click", () => {
 document.querySelector("#btn-larger-storage").addEventListener("click", () => {
   selectAddons("larger-storage");
 });
-document.querySelector("#btn-customizable-profile").addEventListener("click", () => {
-  selectAddons("customizable-profile");
-});
+document
+  .querySelector("#btn-customizable-profile")
+  .addEventListener("click", () => {
+    selectAddons("customizable-profile");
+  });
 
 function selectAddons(addon) {
   // document.querySelector("#btn-" + addon).classList.add("selected");
@@ -120,8 +147,7 @@ function selectAddons(addon) {
     document.querySelector("#btn-" + addon).classList.remove("selected");
     // uncheck the input box
     document.querySelector("#input-" + addon).checked = false;
-  }
-  else {
+  } else {
     document.querySelector("#btn-" + addon).classList.add("selected");
     // check the input box
     document.querySelector("#input-" + addon).checked = true;
