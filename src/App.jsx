@@ -4,7 +4,7 @@ import "./App.css";
 import "./sass/output.scss";
 import bgSidebarMobile from "./assets/images/bg-sidebar-mobile.svg";
 import Sidebar from "./js/sidebar.jsx";
-import MainJS from "./js/main.jsx";
+import MainJS from "./js/functions.jsx";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Step1 />
       </div>
 
-      <script src={MainJS}></script>
+      <script src="./js/functions.jsx"></script>
     </div>
   );
 }

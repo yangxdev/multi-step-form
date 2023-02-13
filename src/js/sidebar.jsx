@@ -1,6 +1,44 @@
 import React, { Component } from "react";
+import { isMobile } from "./mobile.jsx";
 
 class Sidebar extends Component {
+  state = {
+    step: 1,
+    minWidth: 768,
+  };
+
+  componentDidMount() {
+    this.showSidebar();
+    // this.sidebarSelectStep(this.step);
+  }
+
+  showSidebar = () => {
+    const sidebarDesktop = document.querySelector(".sidebar-desktop");
+    const sidebarMobile = document.querySelector(".sidebar-mobile");
+    sidebarDesktop.classList.add("hidden");
+    sidebarMobile.classList.add("hidden");
+
+    if (isMobile(this.minWidth)) {
+      sidebarMobile.classList.remove("hidden");
+    } else {
+      sidebarDesktop.classList.remove("hidden");
+    }
+  };
+
+  hideSidebar = () => {
+    document.querySelector(".sidebar").classList.add("hidden");
+  };
+
+  // sidebarSelectStep = (n) => {
+  //   // remove "active" from all the divs with i inside
+  //   document.querySelectorAll(".i").forEach((div) => {
+  //     div.classList.remove("active");
+  //   });
+
+  //   // add "active" to the nth div with i inside
+  //   document.querySelectorAll(".i")[n].classList.add("active");
+  // };
+
   render() {
     return (
       <div className="sidebar">
