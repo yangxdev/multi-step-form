@@ -9,19 +9,24 @@ class Sidebar extends Component {
 
   componentDidMount() {
     this.showSidebar();
-    // this.sidebarSelectStep(this.step);
+    this.sidebarSelectStep(this.state.step);
   }
 
   showSidebar = () => {
+    console.log("showSidebar() called");
     const sidebarDesktop = document.querySelector(".sidebar-desktop");
     const sidebarMobile = document.querySelector(".sidebar-mobile");
     sidebarDesktop.classList.add("hidden");
     sidebarMobile.classList.add("hidden");
 
-    if (isMobile(this.minWidth)) {
+    // console.log("current minWidth: " + this.state.minWidth);
+
+    if (isMobile(this.state.minWidth)) {
       sidebarMobile.classList.remove("hidden");
+      // console.log("sidebarMobile.classList.remove('hidden');");
     } else {
       sidebarDesktop.classList.remove("hidden");
+      // console.log("sidebarDesktop.classList.remove('hidden');");
     }
   };
 
@@ -29,15 +34,15 @@ class Sidebar extends Component {
     document.querySelector(".sidebar").classList.add("hidden");
   };
 
-  // sidebarSelectStep = (n) => {
-  //   // remove "active" from all the divs with i inside
-  //   document.querySelectorAll(".i").forEach((div) => {
-  //     div.classList.remove("active");
-  //   });
+  sidebarSelectStep = (n) => {
+    // remove "active" from all the divs with i inside
+    document.querySelectorAll(".i").forEach((div) => {
+      div.classList.remove("active");
+    });
 
-  //   // add "active" to the nth div with i inside
-  //   document.querySelectorAll(".i")[n].classList.add("active");
-  // };
+    // add "active" to the nth div with i inside
+    document.querySelectorAll(".i")[n].classList.add("active");
+  };
 
   render() {
     return (
