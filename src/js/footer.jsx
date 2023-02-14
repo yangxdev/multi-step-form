@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class Footer extends Component {
   componentDidMount() {
     this.refreshButtons();
+    console.log("Footer mounted, current step: " + this.props.step);
   }
 
   refreshButtons = () => {
@@ -19,20 +20,28 @@ class Footer extends Component {
   };
 
   previousStep = () => {
-    if (this.state.step > 0) {
-      this.setState({ step: this.state.step - 1 });
-      this.showStep();
-      this.refreshButtons();
-      console.log("previousStep pressed");
+    let newStep = this.props.step;
+    if (this.props.step > 1) {
+      // this.setState({ step: this.props.step - 1 });
+      this.props.onUpdateState(--newStep);
+      // this.showStep();
+      // this.refreshButtons();
+      console.log("previousStep pressed, current state: " + newStep);
+    } else {
+      console.log("can't go further back, current state: " + newStep);
     }
   };
 
   nextStep = () => {
-    if (this.state.step < 3) {
-      this.setState({ step: this.state.step + 1 });
-      this.showStep();
-      this.refreshButtons();
-      console.log("nextStep pressed");
+    let newStep = this.props.step;
+    if (this.props.step < 3) {
+      // this.setState({ step: this.props.step + 1 });
+      this.props.onUpdateState(++newStep);
+      // this.showStep();
+      // this.refreshButtons();
+      console.log("nextStep pressed, current state: " + newStep);
+    } else {
+      console.log("can't go further forward, current state: " + newStep);
     }
   };
 

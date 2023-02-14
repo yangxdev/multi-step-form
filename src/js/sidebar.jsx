@@ -12,6 +12,12 @@ class Sidebar extends Component {
     this.sidebarSelectStep(this.props.step);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.step !== prevProps.step) {
+      this.sidebarSelectStep(this.props.step);
+    }
+  }
+
   showSidebar = () => {
     console.log("showSidebar() called");
     const sidebarDesktop = document.querySelector(".sidebar-desktop");

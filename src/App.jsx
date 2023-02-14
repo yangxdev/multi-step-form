@@ -18,6 +18,10 @@ class App extends React.Component {
     minWidth: 768,
   };
 
+  updateState = (newState) => {
+    this.setState({ step: newState });
+  };
+
   render() {
     let currentStep = null;
     switch (this.state.step) {
@@ -45,7 +49,7 @@ class App extends React.Component {
         <div className="container">
           <Sidebar step={this.state.step} minWidth={this.state.minWidth} />
           {currentStep}
-          <Footer page={this.state.step} />
+          <Footer step={this.state.step} onUpdateState={this.updateState} />
         </div>
 
         <script src="./js/functions.jsx"></script>
