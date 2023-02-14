@@ -1,24 +1,21 @@
 import React, { Component } from "react";
 
 class Step3 extends Component {
-  state = {
-    addons: {
-      onlineService: false,
-      largerStorage: false,
-      customizableProfile: false,
-    },
-  };
-
   selectAddons = (addon) => {
     const btn = document.querySelector(`#btn-${addon}`);
     btn.classList.toggle("selected");
     document.querySelector(`#input-${addon}`).checked =
       btn.classList.contains("selected");
-    this.setState({
-      addons: {
-        ...this.state.addons,
-        [addon]: btn.classList.contains("selected"),
-      },
+    // this.setState({
+    //   addons: {
+    //     ...this.state.addons,
+    //     [addon]: btn.classList.contains("selected"),
+    //   },
+    // });
+    // update the state in App.jsx
+    this.props.onUpdateAddonState({
+      ...this.props.addons,
+      [addon]: btn.classList.contains("selected"),
     });
   };
 
@@ -75,8 +72,27 @@ class Step3 extends Component {
     console.log("customizable profile clicked");
   };
 
+  // function to select the addons based on the state
+  selectAddonsBasedOnState = () => {
+    if (this.props.addons["online-service"]) {
+      document.querySelector("#btn-online-service").classList.add("selected");
+      document.querySelector("#input-online-service").checked = true;
+    }
+    if (this.props.addons["larger-storage"]) {
+      document.querySelector("#btn-larger-storage").classList.add("selected");
+      document.querySelector("#input-larger-storage").checked = true;
+    }
+    if (this.props.addons["customizable-profile"]) {
+      document
+        .querySelector("#btn-customizable-profile")
+        .classList.add("selected");
+      document.querySelector("#input-customizable-profile").checked = true;
+    }
+  };
+
   componentDidMount() {
     this.refreshAddonButtons();
+    this.selectAddonsBasedOnState();
     document.addEventListener("keydown", (e) => {
       if (e.key === "'") {
         this.showState();

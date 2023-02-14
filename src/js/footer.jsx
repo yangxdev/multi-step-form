@@ -23,7 +23,7 @@ class Footer extends Component {
     let newStep = this.props.step;
     if (this.props.step > 1) {
       // this.setState({ step: this.props.step - 1 });
-      this.props.onUpdateState(--newStep);
+      this.props.onUpdateStepState(--newStep);
       // this.showStep();
       // this.refreshButtons();
       console.log("previousStep pressed, current state: " + newStep);
@@ -36,7 +36,7 @@ class Footer extends Component {
     let newStep = this.props.step;
     if (this.props.step < 3) {
       // this.setState({ step: this.props.step + 1 });
-      this.props.onUpdateState(++newStep);
+      this.props.onUpdateStepState(++newStep);
       // this.showStep();
       // this.refreshButtons();
       console.log("nextStep pressed, current state: " + newStep);

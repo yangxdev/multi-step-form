@@ -1,24 +1,35 @@
 import React from "react";
 
-import Step1 from "./js/step1.jsx";
-import Step2 from "./js/step2.jsx";
-import Step3 from "./js/step3.jsx";
+import Step1 from "./js/steps/step1.jsx";
+import Step2 from "./js/steps/step2.jsx";
+import Step3 from "./js/steps/step3.jsx";
 // import Step4 from "./js/step4.jsx";
 
 import "./App.css";
 import "./sass/output.scss";
 import bgSidebarMobile from "./assets/images/bg-sidebar-mobile.svg";
 import Sidebar from "./js/sidebar.jsx";
-import MainJS from "./js/functions.jsx";
+import MainJS from "./legacy/functions.jsx";
 import Footer from "./js/footer.jsx";
 
 class App extends React.Component {
   state = {
     step: 3,
     minWidth: 768,
+
+    // step3's state
+    addons: {
+      "online-service": false,
+      "larger-storage": false,
+      "customizable-profile": false,
+    },
   };
 
-  updateState = (newState) => {
+  updateAddonState = (newState) => {
+    this.setState({ addons: newState });
+  };
+
+  updateStepState = (newState) => {
     this.setState({ step: newState });
   };
 
@@ -32,7 +43,12 @@ class App extends React.Component {
         currentStep = <Step2 />;
         break;
       case 3:
-        currentStep = <Step3 />;
+        currentStep = (
+          <Step3
+            addons={this.state.addons}
+            onUpdateAddonState={this.updateAddonState}
+          />
+        );
         break;
       default:
         currentStep = <Step1 />;
@@ -49,7 +65,10 @@ class App extends React.Component {
         <div className="container">
           <Sidebar step={this.state.step} minWidth={this.state.minWidth} />
           {currentStep}
-          <Footer step={this.state.step} onUpdateState={this.updateState} />
+          <Footer
+            step={this.state.step}
+            onUpdateStepState={this.updateStepState}
+          />
         </div>
 
         <script src="./js/functions.jsx"></script>
