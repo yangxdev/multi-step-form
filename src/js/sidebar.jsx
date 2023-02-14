@@ -3,13 +3,13 @@ import { isMobile } from "./mobile.jsx";
 
 class Sidebar extends Component {
   state = {
-    step: 1,
-    minWidth: 768,
+    // step: 1,
+    // minWidth: 768,
   };
 
   componentDidMount() {
     this.showSidebar();
-    this.sidebarSelectStep(this.state.step);
+    this.sidebarSelectStep(this.props.step);
   }
 
   showSidebar = () => {
@@ -21,7 +21,7 @@ class Sidebar extends Component {
 
     // console.log("current minWidth: " + this.state.minWidth);
 
-    if (isMobile(this.state.minWidth)) {
+    if (isMobile(this.props.minWidth)) {
       sidebarMobile.classList.remove("hidden");
       // console.log("sidebarMobile.classList.remove('hidden');");
     } else {
@@ -41,7 +41,7 @@ class Sidebar extends Component {
     });
 
     // add "active" to the nth div with i inside
-    document.querySelectorAll(".i")[n].classList.add("active");
+    document.querySelectorAll(".i")[n-1].classList.add("active");
   };
 
   render() {

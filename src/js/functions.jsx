@@ -10,28 +10,28 @@ class Main extends React.Component {
   componentDidMount() {
     // the former start() function
     this.showStep(step);
-    this.showSidebar();
-    this.sidebarSelectStep(step);
+    // this.showSidebar();
+    // this.sidebarSelectStep(step);
     window.addEventListener("resize", this.showSidebar);
     this.selectPlan(plan);
     this.setupBilling();
-    this.refreshButtons();
+    // this.refreshButtons();
     console.log("mounted");
   }
 
-  refreshButtons = () => {
-    const btnBack = document.querySelectorAll(".btn-back");
-    btnBack.forEach((btn) => {
-      btn.addEventListener("click", this.previousStep);
-    });
-    const btnNext = document.querySelectorAll(".btn-next");
-    btnNext.forEach((btn) => {
-      console.log("added click to nextStep button n" + btn)
-      btn.addEventListener("click", () => {
-        this.nextStep();
-      });
-    });
-  };
+  // refreshButtons = () => {
+  //   const btnBack = document.querySelectorAll(".btn-back");
+  //   btnBack.forEach((btn) => {
+  //     btn.addEventListener("click", this.previousStep);
+  //   });
+  //   const btnNext = document.querySelectorAll(".btn-next");
+  //   btnNext.forEach((btn) => {
+  //     console.log("added click to nextStep button n" + btn)
+  //     btn.addEventListener("click", () => {
+  //       this.nextStep();
+  //     });
+  //   });
+  // };
 
   setupBilling = () => {
     const billingSlider = document.querySelector("#billing-slider");
@@ -50,23 +50,23 @@ class Main extends React.Component {
     billing = plan;
   };
 
-  previousStep = () => {
-    if (this.state.step > 0) {
-      this.setState({ step: this.state.step - 1 });
-      this.showStep();
-      this.refreshButtons();
-      console.log("previousStep pressed");
-    }
-  };
+  // previousStep = () => {
+  //   if (this.state.step > 0) {
+  //     this.setState({ step: this.state.step - 1 });
+  //     this.showStep();
+  //     this.refreshButtons();
+  //     console.log("previousStep pressed");
+  //   }
+  // };
 
-  nextStep = () => {
-    if (this.state.step < 3) {
-      this.setState({ step: this.state.step + 1 });
-      this.showStep();
-      this.refreshButtons();
-      console.log("nextStep pressed");
-    }
-  };
+  // nextStep = () => {
+  //   if (this.state.step < 3) {
+  //     this.setState({ step: this.state.step + 1 });
+  //     this.showStep();
+  //     this.refreshButtons();
+  //     console.log("nextStep pressed");
+  //   }
+  // };
 
   showStep = (step) => {
     // collect all the steps

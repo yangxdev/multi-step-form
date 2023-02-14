@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-//import "Footer" component
-import Footer from "./footer.jsx";
 
 class Step1 extends Component {
   render() {
@@ -38,7 +36,6 @@ class Step1 extends Component {
           />
         </div>
       </div>
-      <Footer page="1"/> 
       </>
   )
   }
