@@ -2,7 +2,7 @@ import React from "react";
 
 import Step1 from "./js/step1.jsx";
 import Step2 from "./js/step2.jsx";
-// import Step3 from "./js/step3.jsx";
+import Step3 from "./js/step3.jsx";
 // import Step4 from "./js/step4.jsx";
 
 import "./App.css";
@@ -14,7 +14,7 @@ import Footer from "./js/footer.jsx";
 
 class App extends React.Component {
   state = {
-    step: 2,
+    step: 3,
     minWidth: 768,
   };
 
@@ -31,9 +31,9 @@ class App extends React.Component {
       case 2:
         currentStep = <Step2 />;
         break;
-      // case 3:
-      //   currentStep = <Step3 />;
-      //   break;
+      case 3:
+        currentStep = <Step3 />;
+        break;
       default:
         currentStep = <Step1 />;
         break;

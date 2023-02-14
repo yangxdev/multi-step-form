@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import { isMobile } from "./mobile.jsx";
 
 class Sidebar extends Component {
-  state = {
-    // step: 1,
-    // minWidth: 768,
-  };
-
   componentDidMount() {
     this.showSidebar();
     this.sidebarSelectStep(this.props.step);
@@ -47,7 +42,7 @@ class Sidebar extends Component {
     });
 
     // add "active" to the nth div with i inside
-    document.querySelectorAll(".i")[n-1].classList.add("active");
+    document.querySelectorAll(".i")[n - 1].classList.add("active");
   };
 
   render() {
