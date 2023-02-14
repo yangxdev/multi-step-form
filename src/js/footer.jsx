@@ -3,19 +3,19 @@ import React, { Component } from "react";
 class Footer extends Component {
   componentDidMount() {
     this.refreshButtons();
-    console.log("Footer mounted, current step: " + this.props.step);
+    // console.log("Footer mounted, current step: " + this.props.step);
   }
 
   refreshButtons = () => {
     const btnBack = document.querySelectorAll(".btn-back");
     btnBack.forEach((btn) => {
       btn.addEventListener("click", this.previousStep);
-      console.log("added click to previousStep button n" + btn);
+      // console.log("added click to previousStep button n" + btn);
     });
     const btnNext = document.querySelectorAll(".btn-next");
     btnNext.forEach((btn) => {
       btn.addEventListener("click", this.nextStep);
-      console.log("added click to nextStep button n" + btn);
+      // console.log("added click to nextStep button n" + btn);
     });
   };
 
@@ -26,9 +26,9 @@ class Footer extends Component {
       this.props.onUpdateStepState(--newStep);
       // this.showStep();
       // this.refreshButtons();
-      console.log("previousStep pressed, current state: " + newStep);
+      // console.log("previousStep pressed, current state: " + newStep);
     } else {
-      console.log("can't go further back, current state: " + newStep);
+      // console.log("can't go further back, current state: " + newStep);
     }
   };
 
@@ -39,9 +39,9 @@ class Footer extends Component {
       this.props.onUpdateStepState(++newStep);
       // this.showStep();
       // this.refreshButtons();
-      console.log("nextStep pressed, current state: " + newStep);
+      // console.log("nextStep pressed, current state: " + newStep);
     } else {
-      console.log("can't go further forward, current state: " + newStep);
+      // console.log("can't go further forward, current state: " + newStep);
     }
   };
 

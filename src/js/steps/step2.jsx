@@ -1,6 +1,71 @@
 import React, { Component } from "react";
 
 class Step2 extends Component {
+  selectPlan = (plan) => {
+    // deselect all plans first
+    const arcadeBtn = document.querySelector("#btn-arcade");
+    const advancedBtn = document.querySelector("#btn-advanced");
+    const proBtn = document.querySelector("#btn-pro");
+    arcadeBtn.classList.remove("selected");
+    advancedBtn.classList.remove("selected");
+    proBtn.classList.remove("selected");
+
+    // select the plan
+    switch (plan) {
+      case "arcade":
+        arcadeBtn.classList.add("selected");
+        break;
+      case "advanced":
+        advancedBtn.classList.add("selected");
+        break;
+      case "pro":
+        proBtn.classList.add("selected");
+        break;
+      default:
+        arcadeBtn.classList.add("selected");
+        break;
+    }
+
+    // update the state
+    this.props.onUpdatePlanState(plan);
+  };
+
+  refreshPlanButtons = () => {
+    const arcadeBtn = document.querySelector("#btn-arcade");
+    const advancedBtn = document.querySelector("#btn-advanced");
+    const proBtn = document.querySelector("#btn-pro");
+
+    arcadeBtn.removeEventListener("click", this.handleArcadeBtnClick);
+    advancedBtn.removeEventListener("click", this.handleAdvancedBtnClick);
+    proBtn.removeEventListener("click", this.handleProBtnClick);
+
+    arcadeBtn.addEventListener("click", this.handleArcadeBtnClick);
+    advancedBtn.addEventListener("click", this.handleAdvancedBtnClick);
+    proBtn.addEventListener("click", this.handleProBtnClick);
+  };
+
+  handleArcadeBtnClick = () => {
+    this.selectPlan("arcade");
+    // console.log("arcade clicked");
+  };
+
+  handleAdvancedBtnClick = () => {
+    this.selectPlan("advanced");
+    // console.log("advanced clicked");
+  };
+
+  handleProBtnClick = () => {
+    this.selectPlan("pro");
+    // console.log("pro clicked");
+  };
+
+  componentDidMount() {
+    this.refreshPlanButtons();
+    // this.selectPlan but with the element inside the Object plan
+
+    this.selectPlan(this.props.plan);
+  }
+
   render() {
     return (
       <>

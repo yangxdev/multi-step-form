@@ -14,7 +14,7 @@ class Sidebar extends Component {
   }
 
   showSidebar = () => {
-    console.log("showSidebar() called");
+    // console.log("showSidebar() called");
     const sidebarDesktop = document.querySelector(".sidebar-desktop");
     const sidebarMobile = document.querySelector(".sidebar-mobile");
     sidebarDesktop.classList.add("hidden");

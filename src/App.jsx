@@ -14,8 +14,11 @@ import Footer from "./js/footer.jsx";
 
 class App extends React.Component {
   state = {
-    step: 3,
+    step: 2,
     minWidth: 768,
+
+    // step2's state
+    plan: "arcade",
 
     // step3's state
     addons: {
@@ -23,6 +26,10 @@ class App extends React.Component {
       "larger-storage": false,
       "customizable-profile": false,
     },
+  };
+
+  updatePlanState = (newState) => {
+    this.setState({ plan: newState });
   };
 
   updateAddonState = (newState) => {
@@ -40,7 +47,12 @@ class App extends React.Component {
         currentStep = <Step1 />;
         break;
       case 2:
-        currentStep = <Step2 />;
+        currentStep = (
+          <Step2
+            plan={this.state.plan}
+            onUpdatePlanState={this.updatePlanState}
+          />
+        );
         break;
       case 3:
         currentStep = (

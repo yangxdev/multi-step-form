@@ -6,13 +6,6 @@ class Step3 extends Component {
     btn.classList.toggle("selected");
     document.querySelector(`#input-${addon}`).checked =
       btn.classList.contains("selected");
-    // this.setState({
-    //   addons: {
-    //     ...this.state.addons,
-    //     [addon]: btn.classList.contains("selected"),
-    //   },
-    // });
-    // update the state in App.jsx
     this.props.onUpdateAddonState({
       ...this.props.addons,
       [addon]: btn.classList.contains("selected"),
