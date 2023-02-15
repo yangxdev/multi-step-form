@@ -19,6 +19,7 @@ class App extends React.Component {
 
     // step2's state
     plan: "arcade",
+    billing: "monthly",
 
     // step3's state
     addons: {
@@ -30,6 +31,10 @@ class App extends React.Component {
 
   updatePlanState = (newState) => {
     this.setState({ plan: newState });
+  };
+
+  updateBillingState = (newState) => {
+    this.setState({ billing: newState });
   };
 
   updateAddonState = (newState) => {
@@ -50,7 +55,9 @@ class App extends React.Component {
         currentStep = (
           <Step2
             plan={this.state.plan}
+            billing={this.state.billing}
             onUpdatePlanState={this.updatePlanState}
+            onUpdateBillingState={this.updateBillingState}
           />
         );
         break;

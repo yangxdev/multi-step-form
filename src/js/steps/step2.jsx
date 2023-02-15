@@ -30,40 +30,82 @@ class Step2 extends Component {
     this.props.onUpdatePlanState(plan);
   };
 
-  refreshPlanButtons = () => {
+  setupPlanButtons = () => {
     const arcadeBtn = document.querySelector("#btn-arcade");
     const advancedBtn = document.querySelector("#btn-advanced");
     const proBtn = document.querySelector("#btn-pro");
 
-    arcadeBtn.removeEventListener("click", this.handleArcadeBtnClick);
-    advancedBtn.removeEventListener("click", this.handleAdvancedBtnClick);
-    proBtn.removeEventListener("click", this.handleProBtnClick);
+    arcadeBtn.removeEventListener("click", () => this.handleBtnClick("arcade"));
+    advancedBtn.removeEventListener("click", () =>
+      this.handleBtnClick("advanced")
+    );
+    proBtn.removeEventListener("click", () => this.handleBtnClick("pro"));
 
-    arcadeBtn.addEventListener("click", this.handleArcadeBtnClick);
-    advancedBtn.addEventListener("click", this.handleAdvancedBtnClick);
-    proBtn.addEventListener("click", this.handleProBtnClick);
+    arcadeBtn.addEventListener("click", () => this.handleBtnClick("arcade"));
+    advancedBtn.addEventListener("click", () =>
+      this.handleBtnClick("advanced")
+    );
+    proBtn.addEventListener("click", () => this.handleBtnClick("pro"));
   };
 
-  handleArcadeBtnClick = () => {
-    this.selectPlan("arcade");
-    // console.log("arcade clicked");
+  // refreshBillingButtons = () => {
+
+  // };
+
+  // function to be called when toggle switch is pressed
+  // refreshBillingButtons = () => {
+
+  toggleBilling = () => {
+    let monthly = document.querySelector("#billing-monthly");
+    let yearly = document.querySelector("#billing-yearly");
+
+    if (monthly.classList.contains("selected")) {
+      monthly.classList.remove("selected");
+      yearly.classList.add("selected");
+    } else {
+      yearly.classList.remove("selected");
+      monthly.classList.add("selected");
+    }
+
+    let billing = document.querySelector("#billing");
+    console.log("current value of billing before animation: " + billing.value);
+
+    // update the state
+    this.props.onUpdateBillingState(
+      monthly.classList.contains("selected") ? "monthly" : "yearly"
+    ); 
+    // console.log(monthly.classList.contains("selected"))
+
   };
 
-  handleAdvancedBtnClick = () => {
-    this.selectPlan("advanced");
-    // console.log("advanced clicked");
+  selectBilling = () => {
+    let monthly = document.querySelector("#billing-monthly");
+    let yearly = document.querySelector("#billing-yearly");
+
+    if (this.props.billing === "monthly") {
+      monthly.classList.add("selected");
+      yearly.classList.remove("selected");
+    } else {
+      yearly.classList.add("selected");
+      monthly.classList.remove("selected");
+    }
   };
 
-  handleProBtnClick = () => {
-    this.selectPlan("pro");
-    // console.log("pro clicked");
+  setupBillingToggle = () => {
+    let billingToggle = document.querySelector("#billing");
+
+    billingToggle.addEventListener("change", this.toggleBilling);
+  };
+
+  handleBtnClick = (plan) => {
+    this.selectPlan(plan);
   };
 
   componentDidMount() {
-    this.refreshPlanButtons();
-    // this.selectPlan but with the element inside the Object plan
-
+    this.setupPlanButtons();
+    this.setupBillingToggle();
     this.selectPlan(this.props.plan);
+    this.selectBilling(this.props.billing);
   }
 
   render() {
