@@ -14,8 +14,13 @@ import Footer from "./js/footer.jsx";
 
 class App extends React.Component {
   state = {
-    step: 2,
+    step: 1,
     minWidth: 768,
+
+    // step1's state
+    name: "",
+    email: "",
+    phone: "",
 
     // step2's state
     plan: "arcade",
@@ -29,35 +34,32 @@ class App extends React.Component {
     },
   };
 
-  updatePlanState = (newState) => {
-    this.setState({ plan: newState });
-  };
-
-  updateBillingState = (newState) => {
-    this.setState({ billing: newState });
-  };
-
-  updateAddonState = (newState) => {
-    this.setState({ addons: newState });
-  };
-
-  updateStepState = (newState) => {
-    this.setState({ step: newState });
+  updateState = (key, newState) => {
+    this.setState({ [key]: newState });
   };
 
   render() {
     let currentStep = null;
     switch (this.state.step) {
       case 1:
-        currentStep = <Step1 />;
+        currentStep = (
+          <Step1
+            name={this.state.name}
+            email={this.state.email}
+            phone={this.state.phone}
+            onUpdateNameState={this.updateState.bind(this, "name")}
+            onUpdateEmailState={this.updateState.bind(this, "email")}
+            onUpdatePhoneState={this.updateState.bind(this, "phone")}
+          />
+        );
         break;
       case 2:
         currentStep = (
           <Step2
             plan={this.state.plan}
             billing={this.state.billing}
-            onUpdatePlanState={this.updatePlanState}
-            onUpdateBillingState={this.updateBillingState}
+            onUpdatePlanState={this.updateState.bind(this, "plan")}
+            onUpdateBillingState={this.updateState.bind(this, "billing")}
           />
         );
         break;
@@ -65,7 +67,7 @@ class App extends React.Component {
         currentStep = (
           <Step3
             addons={this.state.addons}
-            onUpdateAddonState={this.updateAddonState}
+            onUpdateAddonState={this.updateState.bind(this, "addons")}
           />
         );
         break;
@@ -86,7 +88,7 @@ class App extends React.Component {
           {currentStep}
           <Footer
             step={this.state.step}
-            onUpdateStepState={this.updateStepState}
+            onUpdateStepState={this.updateState.bind(this, "step")}
           />
         </div>
 
