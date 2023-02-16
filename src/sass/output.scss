@@ -291,6 +291,62 @@ supported by Chrome and Opera */
 * body .container .step .card .switch .selected {
   color: hsl(213deg, 96%, 18%);
 }
+* body .container .step .card .summary {
+  background-color: hsl(217deg, 100%, 97%);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+* body .container .step .card .summary .t2 {
+  font-weight: 500;
+  color: hsl(213deg, 96%, 18%);
+}
+* body .container .step .card .summary .t4 {
+  margin-top: -2px;
+  text-decoration: underline;
+  color: hsl(231deg, 11%, 63%);
+}
+* body .container .step .card .summary .summary-plan {
+  display: flex;
+  justify-content: space-between;
+}
+* body .container .step .card .summary .summary-plan .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+* body .container .step .card .summary .summary-plan .right .t2 {
+  font-weight: 600;
+  font-size: 0.8em;
+}
+* body .container .step .card .summary .summary-addons {
+  display: flex;
+  justify-content: space-between;
+}
+* body .container .step .card .summary .summary-addons .left .t2 {
+  font-weight: 400;
+  color: hsl(231deg, 11%, 63%);
+}
+* body .container .step .card .summary .summary-addons .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+* body .container .step .card .summary .summary-addons .right .t3 {
+  margin-top: 0;
+}
+* body .container .step .card .total {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+* body .container .step .card .total .right .t2 {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: hsl(243deg, 100%, 62%);
+}
 * body .container .footer {
   display: flex;
   justify-content: space-between;

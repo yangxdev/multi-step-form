@@ -34,7 +34,7 @@ class Footer extends Component {
 
   nextStep = () => {
     let newStep = this.props.step;
-    if (this.props.step < 3) {
+    if (this.props.step < 4) {
       // this.setState({ step: this.props.step + 1 });
       this.props.onUpdateStepState(++newStep);
       // this.showStep();
