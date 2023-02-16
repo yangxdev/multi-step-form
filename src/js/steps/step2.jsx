@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import pricing from "../resources/pricing";
 
 class Step2 extends Component {
   selectPlan = (plan) => {
@@ -73,9 +74,8 @@ class Step2 extends Component {
     // update the state
     this.props.onUpdateBillingState(
       monthly.classList.contains("selected") ? "monthly" : "yearly"
-    ); 
+    );
     // console.log(monthly.classList.contains("selected"))
-
   };
 
   selectBilling = () => {
@@ -109,6 +109,26 @@ class Step2 extends Component {
   }
 
   render() {
+    // change price based on billing
+    let monthlyPrices = {
+      arcade: "$" + pricing.plans.monthly.arcade.price + "/mo",
+      advanced: "$" + pricing.plans.monthly.advanced.price + "/mo",
+      pro: "$" + pricing.plans.monthly.pro.price + "/mo",
+    };
+
+    let yearlyPrices = {
+      arcade: "$" + pricing.plans.yearly.arcade.price + "/yr",
+      arcadeMonthsFree: pricing.plans.yearly.arcade.monthsFree + " months free",
+      advanced: "$" + pricing.plans.yearly.advanced.price + "/yr",
+      advancedMonthsFree:
+        pricing.plans.yearly.advanced.monthsFree + " months free",
+      pro: "$" + pricing.plans.yearly.pro.price + "/yr",
+      proMonthsFree: pricing.plans.yearly.pro.monthsFree + " months free",
+    };
+
+    let prices =
+      this.props.billing === "monthly" ? monthlyPrices : yearlyPrices;
+
     return (
       <>
         <div className="step step2" id="step2">
@@ -137,7 +157,8 @@ class Step2 extends Component {
                     <label className="form-check-label" htmlFor="inlineRadio1">
                       Arcade
                     </label>
-                    <div className="t2">$9/mo</div>
+                    <div className="t2">{prices.arcade}</div>
+                    <div className="t3">{prices.arcadeMonthsFree}</div>
                   </div>
                 </div>
               </div>
@@ -159,7 +180,8 @@ class Step2 extends Component {
                     <label className="form-check-label" htmlFor="inlineRadio2">
                       Advanced
                     </label>
-                    <div className="t2">$12/mo</div>
+                    <div className="t2">{prices.advanced}</div>
+                    <div className="t3">{prices.advancedMonthsFree}</div>
                   </div>
                 </div>
               </div>
@@ -181,7 +203,8 @@ class Step2 extends Component {
                     <label className="form-check-label" htmlFor="inlineRadio3">
                       Pro
                     </label>
-                    <div className="t2">$15/mo</div>
+                    <div className="t2">{prices.pro}</div>
+                    <div className="t3">{prices.proMonthsFree}</div>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import pricing from "../resources/pricing";
 
 class Step3 extends Component {
   selectAddons = (addon) => {
@@ -94,6 +95,27 @@ class Step3 extends Component {
   }
 
   render() {
+    let monthlyPrices = {
+      "online-service":
+        "+$" + pricing.addons.monthly["online-service"].price + "/mo",
+      "larger-storage":
+        "+$" + pricing.addons.monthly["larger-storage"].price + "/mo",
+      "customizable-profile":
+        "+$" + pricing.addons.monthly["customizable-profile"].price + "/mo",
+    };
+
+    let yearlyPrices = {
+      "online-service":
+        "+$" + pricing.addons.yearly["online-service"].price + "/yr",
+      "larger-storage":
+        "+$" + pricing.addons.yearly["larger-storage"].price + "/yr",
+      "customizable-profile":
+        "+$" + pricing.addons.yearly["customizable-profile"].price + "/yr",
+    };
+
+    let prices =
+      this.props.billing === "monthly" ? monthlyPrices : yearlyPrices;
+
     return (
       <>
         <div className="step step3" id="step3">
@@ -121,7 +143,7 @@ class Step3 extends Component {
                     <div className="t2">Access to multiplayer games</div>
                   </div>
                   <div className="price-label">
-                    <div className="t3">$1/mo</div>
+                    <div className="t3">{prices["online-service"]}</div>
                   </div>
                 </div>
               </div>
@@ -143,7 +165,7 @@ class Step3 extends Component {
                     <div className="t2">Extra 1TB of cloude save</div>
                   </div>
                   <div className="price-label">
-                    <div className="t3">$2/mo</div>
+                    <div className="t3">{prices["larger-storage"]}</div>
                   </div>
                 </div>
               </div>
@@ -165,7 +187,7 @@ class Step3 extends Component {
                     <div className="t2">Custom theme on your profile</div>
                   </div>
                   <div className="price-label">
-                    <div className="t3">$2/mo</div>
+                    <div className="t3">{prices["customizable-profile"]}</div>
                   </div>
                 </div>
               </div>

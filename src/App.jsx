@@ -14,7 +14,7 @@ import Footer from "./js/footer.jsx";
 
 class App extends React.Component {
   state = {
-    step: 1,
+    step: 3,
     minWidth: 768,
 
     // step1's state
@@ -67,6 +67,7 @@ class App extends React.Component {
         currentStep = (
           <Step3
             addons={this.state.addons}
+            billing={this.state.billing}
             onUpdateAddonState={this.updateState.bind(this, "addons")}
           />
         );
