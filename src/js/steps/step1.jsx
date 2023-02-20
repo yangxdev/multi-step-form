@@ -34,15 +34,15 @@ class Step1 extends Component {
 
     if (name) {
       nameInput.value = name;
-      console.log("name: " + nameInput.value);
+      // console.log("name: " + nameInput.value);
     }
     if (email) {
       emailInput.value = email;
-      console.log("email: " + emailInput.value);
+      // console.log("email: " + emailInput.value);
     }
     if (phone) {
       phoneInput.value = phone;
-      console.log("phone: " + phoneInput.value);
+      // console.log("phone: " + phoneInput.value);
     }
   };
 

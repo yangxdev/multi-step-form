@@ -21,11 +21,13 @@ class Step4 extends Component {
       pricing.plans[this.props.billing][this.props.plan].price +
       billingType;
 
-    function AddonsTitle({ addons }) {
-      console.log(addons);
+    function AddonsTitlePrice({ addons, billing }) {
+      // console.log(addons);
+      // console.log(billing);
       const enabledAddons = Object.keys(addons).filter(
         (addon) => addons[addon]
       );
+      const prices = pricing.addons[billing];
 
       // convert addon to the correct format
       // "online-service" => "Online Service"
@@ -47,32 +49,29 @@ class Step4 extends Component {
           .join(" ");
       });
 
-      return (
-        <div>
-          {enabledAddons.map((addon) => (
-            <div className="t2" key={addon}>
-              {addon}
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-    function AddonsPrice({ addons, billing }) {
-      const prices = pricing.addons[billing];
-      const enabledAddons = Object.keys(addons).filter(
-        (addon) => addons[addon]
-      );
+      // function to reset the word back to the original format
+      // "Online service" => "online-service"
+      function resetWord(word) {
+        return word
+          .split(" ")
+          .map((word) => word.toLowerCase())
+          .join("-");
+      }
 
       return (
-        <div>
+        <>
           {enabledAddons.map((addon) => (
-            <div className="t3" key={addon}>
-              +${prices[addon].price}
-              {billingType}
-            </div>
+            <React.Fragment key={addon}>
+              <div className="row">
+                <div className="t2">{addon}</div>
+                <div className="t3">
+                  +${prices[resetWord(addon)].price}
+                  {billingType}
+                </div>
+              </div>
+            </React.Fragment>
           ))}
-        </div>
+        </>
       );
     }
 
@@ -88,7 +87,13 @@ class Step4 extends Component {
               <div className="summary-plan">
                 <div className="left">
                   <div className="t2">{summaryMain}</div>
-                  <div className="t4">Change</div>
+                  <div
+                    className="t4"
+                    id="btnChange"
+                    onClick={() => this.props.goToStep(2)}
+                  >
+                    Change
+                  </div>
                 </div>
                 <div className="right">
                   <div className="t2">{summaryMainPrice}</div>
@@ -96,21 +101,36 @@ class Step4 extends Component {
               </div>
               <hr></hr>
               <div className="summary-addons">
-                <div className="row">
-                  <AddonsTitle addons={this.props.addons} />
-                  <AddonsPrice
-                    addons={this.props.addons}
-                    billing={this.props.billing}
-                  />
-                </div>
+                <AddonsTitlePrice
+                  addons={this.props.addons}
+                  billing={this.props.billing}
+                />
               </div>
             </div>
             <div className="total">
               <div className="left">
-                <div className="t2">Total (per month)</div>
+                <div className="t2">
+                  Total (per{" "}
+                  {this.props.billing === "monthly" ? "month" : "year"})
+                </div>
               </div>
               <div className="right">
-                <div className="t2">$9/mo</div>
+                <div className="t2">
+                  {
+                    // sum up the total price
+                    "+$" +
+                      (pricing.plans[this.props.billing][this.props.plan]
+                        .price +
+                        Object.keys(this.props.addons)
+                          .filter((addon) => this.props.addons[addon])
+                          .map(
+                            (addon) =>
+                              pricing.addons[this.props.billing][addon].price
+                          )
+                          .reduce((a, b) => a + b, 0)) +
+                      billingType
+                  }
+                </div>
               </div>
             </div>
           </div>

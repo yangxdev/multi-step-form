@@ -70,6 +70,7 @@ class App extends React.Component {
       case 4:
         currentStep = (
           <Step4
+            goToStep={this.updateState.bind(this, "step")}
             plan={this.state.plan}
             addons={this.state.addons}
             billing={this.state.billing}

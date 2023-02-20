@@ -347,7 +347,7 @@ $font-size: 16px;
             margin-bottom: 20px;
             margin-top: 20px;
             .t2 {
-              font-weight: 500;
+              font-weight: 600;
               color: $color_marineblue;
             }
             .t4 {
@@ -364,23 +364,24 @@ $font-size: 16px;
                 justify-content: center;
                 .t2 {
                   font-weight: 600;
-                  font-size: 0.8em;
+                  font-size: 1em;
                 }
               }
             }
             .summary-addons {
               display: flex;
               justify-content: space-between;
-              .left {
-                .t2 {
-                  font-weight: 400;
-                  color: $color_coolgray;
-                }
-              }
-              .right {
+              flex-direction: column;
+              align-items: center;
+              .row {
+                width: 100%;
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                justify-content: space-between;
+                .t2 {
+                  color: $color_coolgray;
+                  font-weight: 400;
+                  margin-bottom: 10px;
+                }
                 .t3 {
                   margin-top: 0;
                 }
@@ -395,7 +396,7 @@ $font-size: 16px;
             .right {
               .t2 {
                 font-weight: 600;
-                font-size: 0.9em;
+                font-size: 1em;
                 color: $color_purplishblue;
               }
             }
