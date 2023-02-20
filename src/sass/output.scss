@@ -363,13 +363,19 @@ supported by Chrome and Opera */
 * body .container .footer .btn {
   border: none;
   font-size: 1rem;
-  background-color: hsl(213deg, 96%, 18%);
   position: relative;
   width: 110px;
   float: right;
   margin: 0;
   padding: 10px;
   color: hsl(206deg, 94%, 87%);
+}
+* body .container .footer .btn-next {
+  background-color: hsl(213deg, 96%, 18%);
+}
+* body .container .footer .btn-submit {
+  background-color: hsl(243deg, 100%, 62%);
+  color: hsl(0deg, 0%, 100%);
 }
 * body .container .footer .btn-secondary {
   background-color: hsl(0deg, 0%, 100%);

@@ -415,7 +415,6 @@ $font-size: 16px;
         .btn {
           border: none;
           font-size: 1rem;
-          background-color: $color_marineblue;
           position: relative;
           width: 110px;
           float: right;
@@ -423,12 +422,18 @@ $font-size: 16px;
           padding: 10px;
           color: $color_lightblue;
         }
+        .btn-next {
+          background-color: $color_marineblue;
+        }
+        .btn-submit {
+          background-color: $color_purplishblue;
+          color: $color_white;
+        }
         .btn-secondary {
           background-color: $color_white;
           color: $color_coolgray;
           font-weight: 500;
           padding: 0;
-          // margin-left: -15px;
         }
       }
     }
