@@ -34,16 +34,16 @@
   color: hsl(213deg, 96%, 18%);
   margin-top: 15px;
 }
-* body {
+* body #root {
+  height: 100vh;
   background-color: hsl(231deg, 100%, 99%) !important;
   width: auto;
-  height: auto;
   position: relative;
   margin: 0px;
 }
-* body .t1,
-* body .t2,
-* body .t3 {
+* body #root .t1,
+* body #root .t2,
+* body #root .t3 {
   -webkit-touch-callout: none !important; /* iOS Safari */
   -webkit-user-select: none !important; /* Safari */
   -khtml-user-select: none !important; /* Konqueror HTML */
@@ -52,16 +52,16 @@
   user-select: none !important; /* Non-prefixed version, currently
 supported by Chrome and Opera */
 }
-* body .bg {
+* body #root .bg {
   position: absolute;
   width: 100%;
 }
-* body .container {
+* body #root .container {
   width: 100vw;
   margin: 0 auto;
   padding: 0;
 }
-* body .container .sidebar {
+* body #root .container .sidebar {
   display: flex;
   position: absolute;
   width: 100%;
@@ -69,11 +69,11 @@ supported by Chrome and Opera */
   align-items: center;
   justify-content: center;
 }
-* body .container .sidebar .sidebar-mobile .n {
+* body #root .container .sidebar .sidebar-mobile .n {
   display: flex;
   flex-direction: row;
 }
-* body .container .sidebar .sidebar-mobile .n > * {
+* body #root .container .sidebar .sidebar-mobile .n > * {
   font-size: 0.85rem;
   font-weight: 500;
   color: hsl(0deg, 0%, 100%);
@@ -88,18 +88,20 @@ supported by Chrome and Opera */
   margin-left: 10px;
   margin-right: 10px;
 }
-* body .container .sidebar .sidebar-mobile .n .active {
+* body #root .container .sidebar .sidebar-mobile .n .active {
   border: 1px solid hsl(206deg, 94%, 87%);
   background-color: hsl(206deg, 94%, 87%);
   color: hsl(213deg, 96%, 18%);
 }
-* body .container .step {
+* body #root .container .step {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  position: relative;
+  height: calc(100vh - 74px);
+  overflow: auto;
   width: 100%;
 }
-* body .container .step .card {
+* body #root .container .step .card {
   background-color: hsl(0deg, 0%, 100%);
   padding: 25px;
   margin: 5%;
@@ -113,28 +115,28 @@ supported by Chrome and Opera */
   /* The slider */
   /* Rounded sliders */
 }
-* body .container .step .card .form-check-inline {
+* body #root .container .step .card .form-check-inline {
   margin-right: 0;
 }
-* body .container .step .card .form-check {
+* body #root .container .step .card .form-check {
   display: flex;
   flex-direction: column;
 }
-* body .container .step .card .form-check .wrapper {
+* body #root .container .step .card .form-check .wrapper {
   margin-top: 15px;
   border-radius: 10px;
   width: 100%;
 }
-* body .container .step .card .form-check .wrapper :hover {
+* body #root .container .step .card .form-check .wrapper :hover {
   cursor: pointer;
 }
-* body .container .step .card .form-check .selected {
+* body #root .container .step .card .form-check .selected {
   -webkit-box-shadow: inset 0px 0px 0px 2px hsl(243deg, 100%, 62%);
   -moz-box-shadow: inset 0px 0px 0px 2px hsl(243deg, 100%, 62%);
   box-shadow: inset 0px 0px 0px 2px hsl(243deg, 100%, 62%);
   background-color: hsl(217deg, 100%, 97%);
 }
-* body .container .step .card .form-check .radio-btn {
+* body #root .container .step .card .form-check .radio-btn {
   display: flex;
   width: 100%;
   padding: 20px;
@@ -144,27 +146,27 @@ supported by Chrome and Opera */
   border: solid 1px hsl(229deg, 24%, 87%);
   border-radius: 10px;
 }
-* body .container .step .card .form-check .radio-btn input {
+* body #root .container .step .card .form-check .radio-btn input {
   appearance: none;
 }
-* body .container .step .card .form-check .radio-btn .radio-icon {
+* body #root .container .step .card .form-check .radio-btn .radio-icon {
   margin-right: 10px;
 }
-* body .container .step .card .form-check .radio-btn .radio-label {
+* body #root .container .step .card .form-check .radio-btn .radio-label {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 }
-* body .container .step .card .form-check .radio-btn .radio-label .t2 {
+* body #root .container .step .card .form-check .radio-btn .radio-label .t2 {
   margin: 0;
   font-size: 0.85rem;
   font-weight: 500;
 }
-* body .container .step .card .form-check .radio-btn .radio-label .t3 {
+* body #root .container .step .card .form-check .radio-btn .radio-label .t3 {
   margin-top: 0;
 }
-* body .container .step .card .form-check .checkbox-btn {
+* body #root .container .step .card .form-check .checkbox-btn {
   display: flex;
   width: 100%;
   padding: 20px;
@@ -174,45 +176,45 @@ supported by Chrome and Opera */
   border: solid 1px hsl(229deg, 24%, 87%);
   border-radius: 10px;
 }
-* body .container .step .card .form-check .checkbox-btn input {
+* body #root .container .step .card .form-check .checkbox-btn input {
   width: 25px;
   margin-left: -5px;
   margin-right: 10px;
 }
-* body .container .step .card .form-check .checkbox-btn .checkbox-label {
+* body #root .container .step .card .form-check .checkbox-btn .checkbox-label {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 }
-* body .container .step .card .form-check .checkbox-btn .checkbox-label .form-check-label {
+* body #root .container .step .card .form-check .checkbox-btn .checkbox-label .form-check-label {
   font-size: 0.95rem;
 }
-* body .container .step .card .form-check .checkbox-btn .checkbox-label .t2 {
+* body #root .container .step .card .form-check .checkbox-btn .checkbox-label .t2 {
   margin: 0;
   font-size: 0.75rem;
   font-weight: 400;
 }
-* body .container .step .card .form-check .checkbox-btn .price-label {
+* body #root .container .step .card .form-check .checkbox-btn .price-label {
   display: flex;
   align-items: center;
 }
-* body .container .step .card .form-check .checkbox-btn .price-label > * {
+* body #root .container .step .card .form-check .checkbox-btn .price-label > * {
   margin-top: 0px;
   color: hsl(243deg, 100%, 62%);
 }
-* body .container .step .card .switch {
+* body #root .container .step .card .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-* body .container .step .card .switch input {
+* body #root .container .step .card .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-* body .container .step .card .slider {
+* body #root .container .step .card .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -223,7 +225,7 @@ supported by Chrome and Opera */
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-* body .container .step .card .slider:before {
+* body #root .container .step .card .slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -234,18 +236,18 @@ supported by Chrome and Opera */
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-* body .container .step .card input:checked + .slider:before {
+* body #root .container .step .card input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-* body .container .step .card .slider.round {
+* body #root .container .step .card .slider.round {
   border-radius: 34px;
 }
-* body .container .step .card .slider.round:before {
+* body #root .container .step .card .slider.round:before {
   border-radius: 50%;
 }
-* body .container .step .card .switch {
+* body #root .container .step .card .switch {
   position: relative;
   border-radius: 10px;
   margin-top: 15px;
@@ -261,7 +263,7 @@ supported by Chrome and Opera */
   text-align: center;
   justify-content: center;
 }
-* body .container .step .card .switch .slider {
+* body #root .container .step .card .switch .slider {
   background-color: hsl(213deg, 96%, 18%);
   width: 50px;
   height: 24px;
@@ -270,11 +272,11 @@ supported by Chrome and Opera */
   left: auto;
   right: auto;
 }
-* body .container .step .card .switch .slider:before {
+* body #root .container .step .card .switch .slider:before {
   height: 16px;
   width: 16px;
 }
-* body .container .step .card .switch .t3 {
+* body #root .container .step .card .switch .t3 {
   display: flex;
   color: hsl(231deg, 11%, 63%);
   height: 35px;
@@ -284,83 +286,84 @@ supported by Chrome and Opera */
   margin-left: 35px;
   margin-right: 45px;
 }
-* body .container .step .card .switch .t3 > * {
+* body #root .container .step .card .switch .t3 > * {
   height: 100%;
   width: 100%;
 }
-* body .container .step .card .switch .selected {
+* body #root .container .step .card .switch .selected {
   color: hsl(213deg, 96%, 18%);
 }
-* body .container .step .card .summary {
+* body #root .container .step .card .summary {
   background-color: hsl(217deg, 100%, 97%);
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
-* body .container .step .card .summary .t2 {
+* body #root .container .step .card .summary .t2 {
   font-weight: 600;
   color: hsl(213deg, 96%, 18%);
 }
-* body .container .step .card .summary .t4 {
+* body #root .container .step .card .summary .t4 {
   margin-top: -2px;
   text-decoration: underline;
   color: hsl(231deg, 11%, 63%);
 }
-* body .container .step .card .summary .summary-plan {
+* body #root .container .step .card .summary .summary-plan {
   display: flex;
   justify-content: space-between;
 }
-* body .container .step .card .summary .summary-plan .right {
+* body #root .container .step .card .summary .summary-plan .right {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-* body .container .step .card .summary .summary-plan .right .t2 {
+* body #root .container .step .card .summary .summary-plan .right .t2 {
   font-weight: 600;
   font-size: 1em;
 }
-* body .container .step .card .summary .summary-addons {
+* body #root .container .step .card .summary .summary-addons {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
 }
-* body .container .step .card .summary .summary-addons .row {
+* body #root .container .step .card .summary .summary-addons .row {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-* body .container .step .card .summary .summary-addons .row .t2 {
+* body #root .container .step .card .summary .summary-addons .row .t2 {
   color: hsl(231deg, 11%, 63%);
   font-weight: 400;
   margin-bottom: 10px;
 }
-* body .container .step .card .summary .summary-addons .row .t3 {
+* body #root .container .step .card .summary .summary-addons .row .t3 {
   margin-top: 0;
 }
-* body .container .step .card .total {
+* body #root .container .step .card .total {
   display: flex;
   justify-content: space-between;
   margin-left: 15px;
   margin-right: 15px;
 }
-* body .container .step .card .total .right .t2 {
+* body #root .container .step .card .total .right .t2 {
   font-weight: 600;
   font-size: 1em;
   color: hsl(243deg, 100%, 62%);
 }
-* body .container .footer {
+* body #root .container .footer {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   background-color: white;
-  position: absolute;
-  padding: 15px;
+  position: fixed;
   bottom: 0;
+  height: 74px;
+  width: 100%;
+  padding: 15px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-* body .container .footer .btn {
+* body #root .container .footer .btn {
   border: none;
   font-size: 1rem;
   position: relative;
@@ -370,14 +373,14 @@ supported by Chrome and Opera */
   padding: 10px;
   color: hsl(206deg, 94%, 87%);
 }
-* body .container .footer .btn-next {
+* body #root .container .footer .btn-next {
   background-color: hsl(213deg, 96%, 18%);
 }
-* body .container .footer .btn-submit {
+* body #root .container .footer .btn-submit {
   background-color: hsl(243deg, 100%, 62%);
   color: hsl(0deg, 0%, 100%);
 }
-* body .container .footer .btn-secondary {
+* body #root .container .footer .btn-secondary {
   background-color: hsl(0deg, 0%, 100%);
   color: hsl(231deg, 11%, 63%);
   font-weight: 500;

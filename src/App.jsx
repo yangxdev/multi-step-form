@@ -14,7 +14,7 @@ import Footer from "./js/footer.jsx";
 
 class App extends React.Component {
   state = {
-    step: 4,
+    step: 2,
     minWidth: 768,
 
     // step2's state
