@@ -22,6 +22,13 @@ class Footer extends Component {
       btn.addEventListener("click", this.nextStep);
       // console.log("added click to nextStep button n" + btn);
     });
+
+    const btnSubmit = document.querySelectorAll(".btn-submit");
+    btnSubmit.forEach((btn) => {
+      btn.addEventListener("click", this.submitForm);
+      // console.log("added click to submitForm button n" + btn);
+    });
+    // TODO: create submitForm
   };
 
   previousStep = () => {
@@ -52,32 +59,38 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="footer">
-        <button
-          type="button"
-          className="btn btn-secondary btn-lg btn-block btn-back"
-          id="btn-back"
-        >
-          Go Back
-        </button>
-        {this.props.step === 4 ? (
-          <button
-            type="button"
-            className="btn btn-primary btn-lg btn-block btn-submit"
-            id="btn-submit"
-          >
-            Submit
-          </button>
+      <>
+        {this.props.step != 5 ? (
+          <div className="footer">
+            <button
+              type="button"
+              className="btn btn-secondary btn-lg btn-block btn-back"
+              id="btn-back"
+            >
+              Go Back
+            </button>
+            {this.props.step === 4 ? (
+              <button
+                type="button"
+                className="btn btn-primary btn-lg btn-block btn-submit"
+                id="btn-submit"
+              >
+                Submit
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-primary btn-lg btn-block btn-next"
+                id="btn-next"
+              >
+                Next Step
+              </button>
+            )}
+          </div>
         ) : (
-          <button
-            type="button"
-            className="btn btn-primary btn-lg btn-block btn-next"
-            id="btn-next"
-          >
-            Next Step
-          </button>
+          <></>
         )}
-      </div>
+      </>
     );
   }
 }

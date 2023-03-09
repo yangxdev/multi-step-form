@@ -348,7 +348,7 @@ $font-size: 16px;
               }
             }
 
-            //step4 attributes
+            // step4 attributes
             .summary {
               background-color: $color_magnolia;
               padding: 15px;
@@ -409,6 +409,21 @@ $font-size: 16px;
                   color: $color_purplishblue;
                 }
               }
+            }
+
+            // step5 attributes
+            .icon-thank-you {
+              margin-top: 50px;
+              margin-bottom: 20px;
+              align-self: center;
+              width: 50px;
+            }
+            .t2,
+            .t1 {
+              text-align: center;
+            }
+            .t2 {
+              margin-bottom: 50px;
             }
           }
         }

@@ -4,6 +4,7 @@ import Step1 from "./js/steps/step1.jsx";
 import Step2 from "./js/steps/step2.jsx";
 import Step3 from "./js/steps/step3.jsx";
 import Step4 from "./js/steps/step4.jsx";
+import StepComplete from "./js/steps/stepComplete.jsx";
 
 import "./App.css";
 import "./sass/output.scss";
@@ -14,7 +15,7 @@ import Footer from "./js/footer.jsx";
 
 class App extends React.Component {
   state = {
-    step: 2,
+    step: 5,
     minWidth: 768,
 
     // step2's state
@@ -75,6 +76,11 @@ class App extends React.Component {
             addons={this.state.addons}
             billing={this.state.billing}
           />
+        );
+        break;
+      case 5:
+        currentStep = (
+          <StepComplete goToStep={this.updateState.bind(this, "step")} />
         );
         break;
       default:

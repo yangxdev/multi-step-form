@@ -352,6 +352,19 @@ supported by Chrome and Opera */
   font-size: 1em;
   color: hsl(243deg, 100%, 62%);
 }
+* body #root .container .step .card .icon-thank-you {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  align-self: center;
+  width: 50px;
+}
+* body #root .container .step .card .t2,
+* body #root .container .step .card .t1 {
+  text-align: center;
+}
+* body #root .container .step .card .t2 {
+  margin-bottom: 50px;
+}
 * body #root .container .footer {
   display: flex;
   justify-content: space-between;

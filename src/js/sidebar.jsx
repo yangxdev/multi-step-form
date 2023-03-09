@@ -43,6 +43,9 @@ class Sidebar extends Component {
     });
 
     // add "active" to the nth div with i inside
+    if (n == 5) {
+      n = 4;
+    }
     document.querySelectorAll(".i")[n - 1].classList.add("active");
   };
 
