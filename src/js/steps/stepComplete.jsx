@@ -12,7 +12,7 @@ class StepComplete extends Component {
               alt="icon-thank-you"
             />
             <div className="t1">Thank you!</div>
-            <div className="t2">
+            <div className="step5 t2">
               Thanks for confirming your subscription!<br></br>
               We hope you have fun using our platform. <br></br>If you ever need
               support, please feel free to email us at support@loremgaming.com.

@@ -9,14 +9,36 @@ import StepComplete from "./js/steps/stepComplete.jsx";
 import "./App.css";
 import "./sass/output.scss";
 import bgSidebarMobile from "./assets/images/bg-sidebar-mobile.svg";
+import bgSidebarDesktop from "./assets/images/bg-sidebar-desktop.svg";
 import Sidebar from "./js/sidebar.jsx";
 import MainJS from "./legacy/functions.jsx";
 import Footer from "./js/footer.jsx";
+import { isMobile } from "./js/mobile.jsx";
 
 class App extends React.Component {
+  componentDidMount() {
+    window.addEventListener("resize", this.setSidebar);
+    this.setSidebar();
+  }
+
+  setSidebar = () => {
+    const desktop = document.querySelector(".main-desktop");
+    const mobile = document.querySelector(".main-mobile");
+
+    if (isMobile(this.state.minWidth)) {
+      mobile.classList.remove("hidden");
+      desktop.classList.add("hidden");
+      console.log("ismobile");
+    } else {
+      mobile.classList.add("hidden");
+      desktop.classList.remove("hidden");
+      console.log("isdesktop");
+    }
+  };
+
   state = {
-    step: 5,
-    minWidth: 768,
+    step: 1,
+    minWidth: 575,
 
     // step2's state
     plan: "arcade",
@@ -89,23 +111,32 @@ class App extends React.Component {
     }
 
     return (
-      <div>
-        <img
-          className="bg bg-sidebar-mobile"
-          src={bgSidebarMobile}
-          alt="background image"
-        />
-        <div className="container">
-          <Sidebar step={this.state.step} minWidth={this.state.minWidth} />
-          {currentStep}
-          <Footer
-            step={this.state.step}
-            onUpdateStepState={this.updateState.bind(this, "step")}
+      <>
+        <div className="main-mobile">
+          <img
+            className="bg bg-sidebar-mobile"
+            src={bgSidebarMobile}
+            alt="background image"
           />
+          <div className="container">
+            <Sidebar step={this.state.step} minWidth={this.state.minWidth} />
+            {currentStep}
+            <Footer
+              step={this.state.step}
+              onUpdateStepState={this.updateState.bind(this, "step")}
+            />
+          </div>
         </div>
-
+        <div className="main-desktop">
+          <img
+            className="bg bg-sidebar-desktop"
+            src={bgSidebarDesktop}
+            alt="background image"
+          />
+          <div className="container">{currentStep}</div>
+        </div>
         <script src="./js/functions.jsx"></script>
-      </div>
+      </>
     );
   }
 }
