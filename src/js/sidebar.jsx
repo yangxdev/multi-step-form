@@ -3,6 +3,7 @@ import { isMobile } from "./mobile.jsx";
 
 class Sidebar extends Component {
   componentDidMount() {
+    window.addEventListener('resize', this.showSidebar);
     this.showSidebar();
     this.sidebarSelectStep(this.props.step);
   }
